@@ -1,0 +1,72 @@
+#navbar {
+  position: sticky;
+  top: 0rem;
+  display: flex;
+  z-index: 100;
+  background-color: rgb(28, 35, 54);
+  width:100%;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: -1rem;
+  padding-top: -10rem;
+}
+
+#titulo {
+  margin-left: -3rem;
+}
+
+#searchbar {
+  margin-left: -6.5rem;
+}
+
+#lojueguito {
+  margin-bottom: -1.2rem;
+  /* text-shadow: 0rem 0rem 1rem rgb(255, 0, 0) ;
+  color: aliceblue;
+  -webkit-text-stroke: 4px rgb(255, 0, 0); */
+  color: #fff;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 4px #fff,
+    0 0 12px #fff,
+    0 0 23px red,
+    0 0 25px red,
+    0 0 30px red,
+    0 0 35px red,
+    0 0 40px red;
+  font-size: 2.8rem;
+}
+
+#about, #fede {
+  display: flex;
+  justify-content: flex-end;
+  color: aliceblue;
+}
+
+#about {
+  margin-left: 0.3rem;
+}
+
+#lojueguito:hover {
+  color: rgb(16, 19, 73); 
+}
+
+#about:hover {
+  color: red;
+}
+
+#create {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    cursor: pointer;
+    background-color: rgb(16, 19, 73);
+    border: 1px solid aliceblue;
+    color: aliceblue;
+    padding: 0.7rem;
+}
+
+#create:hover {
+  background-color: aliceblue;
+  color: rgb(16, 19, 73);
+  border: 1px solid rgb(16, 19, 73);
+}
