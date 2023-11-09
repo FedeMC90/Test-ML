@@ -1,23 +1,21 @@
-//action types
 import { 
-  GET_VIDEOGAMES, 
-  GET_VIDEOGAMES_BY_NAME,
-  GET_VIDEOGAME_DETAIL,
+  GET_ITEMS, 
+  GET_ITEMS_BY_NAME,
+  GET_ITEM_DETAIL,
   GET_GENRES, 
-  CREATE_VIDEOGAME,
-  CLEAR_VIDEOGAME_DETAIL,
+  CLEAR_ITEM_DETAIL,
   LOADING,
-  FILTER_VIDEOGAMES_BY_ORIGIN,
-  FILTER_VIDEOGAMES_BY_GENRE,
+  FILTER_ITEMS_BY_ORIGIN,
+  FILTER_ITEMS_BY_GENRE,
   ORDER,
   GET_PLATFORMS,
   CLEAR_HOME
 } from '../actions';
 
 const initialState = {
-  videogames: [],
-  allVideogames: [],
-  videogameDetail: {},
+  items: [],
+  allItems: [],
+  itemDetail: {},
   genres: [],
   platforms: [],
   loading: false,
@@ -25,18 +23,18 @@ const initialState = {
 
 export default function reducer (state = initialState, action) {
   switch (action.type) {
-    case GET_VIDEOGAMES:
+    case GET_ITEMS:
       return {
         ...state,
         loading: false,
-        videogames: action.payload,
-        allVideogames: action.payload
+        items: action.payload,
+        allItems: action.payload
       };
-    case GET_VIDEOGAMES_BY_NAME:
+    case GET_ITEMS_BY_NAME:
       return {
         ...state,
         loading: false,
-        videogames: action.payload,
+        items: action.payload,
       };  
     case GET_GENRES:
       return {
@@ -48,74 +46,70 @@ export default function reducer (state = initialState, action) {
         ...state,
         platforms: action.payload,
       };  
-    case CLEAR_VIDEOGAME_DETAIL:
+    case CLEAR_ITEM_DETAIL:
       return {
         ...state,
-        videogameDetail: {},
+        itemDetail: {},
       };
       case CLEAR_HOME:
         return {
           ...state,
-          videogames: [],
+          items: [],
         };    
-    case GET_VIDEOGAME_DETAIL:
+    case GET_ITEM_DETAIL:
       return {
         ...state,
         loading: false,
-        videogameDetail: action.payload,
+        itemDetail: action.payload,
       };
-    case FILTER_VIDEOGAMES_BY_ORIGIN:
-      const videogamesOrigin = state.allVideogames;
-      const filteredByOrigin = action.payload === 'todos' ? videogamesOrigin : 
-        action.payload === 'api' ? videogamesOrigin.filter(e => !isNaN(e.id)) :
-        videogamesOrigin.filter(e => isNaN(e.id))
+    case FILTER_ITEMS_BY_ORIGIN:
+      const itemsOrigin = state.allItems;
+      const filteredByOrigin = action.payload === 'todos' ? itemsOrigin : 
+        action.payload === 'api' ? itemsOrigin.filter(e => !isNaN(e.id)) :
+        itemsOrigin.filter(e => isNaN(e.id))
       return {
         ...state,
-        videogames: filteredByOrigin
+        items: filteredByOrigin
       };
-    case FILTER_VIDEOGAMES_BY_GENRE:
-      const videogamesGenre = state.allVideogames;
-      const filteredByGenre = action.payload === 'todos' ? videogamesGenre : 
-        videogamesGenre.filter(e => e.genres.some(e => e.name === action.payload));
+    case FILTER_ITEMS_BY_GENRE:
+      const itemsGenre = state.allItems;
+      const filteredByGenre = action.payload === 'todos' ? itemsGenre : 
+        itemsGenre.filter(e => e.genres.some(e => e.name === action.payload));
       return {
         ...state,
-        videogames: filteredByGenre
+        items: filteredByGenre
       };   
-    case CREATE_VIDEOGAME:
-      return {
-        ...state,
-      };
     case LOADING:
       return {
         ...state,
         loading: true,
       };
     case ORDER:
-      let orderVideogames = action.payload === 'atoz' ?
-        state.videogames.sort((a, b) => {
+      let orderItems = action.payload === 'atoz' ?
+        state.items.sort((a, b) => {
           if (a.name > b.name) return 1;
           if (a.name < b.name) return -1;
           return 0;
         }) : action.payload === 'ztoa' ?
-        state.videogames.sort((a, b) => {
+        state.items.sort((a, b) => {
           if (a.name > b.name) return -1;
           if (a.name < b.name) return 1;
           return 0;
         }) : action.payload === '0to5' ?
-        state.videogames.sort((a, b) => {
+        state.items.sort((a, b) => {
           if (a.rating > b.rating) return 1;
           if (a.rating < b.rating) return -1;
           return 0;
         }) : action.payload === '5to0' ?
-        state.videogames.sort((a, b) => {
+        state.items.sort((a, b) => {
           if (a.rating > b.rating) return -1;
           if (a.rating < b.rating) return 1;
           return 0;
-        }) : state.allVideogames
+        }) : state.allItems
         
       return {
         ...state,
-        videogames: orderVideogames,
+        items: orderItems,
       }
     default:
       return state;

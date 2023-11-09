@@ -1,32 +1,32 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { 
-  getVideogames, 
-  filterVideogamesByOrigin, 
-  filterVideogamesByGenre, 
+  getItems, 
+  filterItemsByOrigin, 
+  filterItemsByGenre, 
   getGenres, 
   ordered,
   clearHome
 } from '../../redux/actions';
 import { useDispatch, useSelector } from "react-redux";
-import VideogameCard from "../VideogameCard/VideogameCard";
+import ItemCard from "../ItemCard/ItemCard";
 import './Home.css';
 import load from '../../Media/Loading.gif';
 import Paginado from "../Paginado/Paginado";
 
 const Home = () => {
-  // Hooks: Con el useSelector me traigo lo que hay en el estado de videogames
-  const videogames = useSelector ((state) => state.videogames);
+  // Hooks: Con el useSelector me traigo lo que hay en el estado de items
+  const items = useSelector ((state) => state.items);
   const genres = useSelector ((state) => state.genres);
   
   const [order, setOrder] = useState('');
   // Creo un estado local que me guarde mi página actual
   const [currentPage, setCurrentPage] = useState(1); 
   // En este estado guardo la cantidad de juegos que quiero por página
-  const videogamesPerPage = 15
-  const indexOfLastVideogame = currentPage * videogamesPerPage; 
-  const indexOfFirstVideogame = indexOfLastVideogame - videogamesPerPage; 
-  const currentVideogames = videogames.slice(indexOfFirstVideogame, indexOfLastVideogame);
+  const itemsPerPage = 15
+  const indexOfLastItem = currentPage * itemsPerPage; 
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage; 
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
   const paginado = (pageNumber) => {
     setCurrentPage(pageNumber);
   } 
@@ -35,13 +35,13 @@ const Home = () => {
   
   // Traigo los videojuegos y los géneros cuando el componente se monta
   useEffect (() => {
-    dispatch(getVideogames());
+    dispatch(getItems());
     dispatch(getGenres());
   }, [dispatch]);
   
   const noHayJuegos = () => {
     alert('No se encontraron juegos con ese nombre.')
-    dispatch(getVideogames());
+    dispatch(getItems());
   }
 
   let loading = useSelector (state => state.loading);
@@ -54,24 +54,24 @@ const Home = () => {
   }
   
   const handleFilterOrigin = (e) => {
-    dispatch(filterVideogamesByOrigin(e.target.value))
+    dispatch(filterItemsByOrigin(e.target.value))
   }
 
   const handleFilterGenre = (e) => {
-    dispatch(filterVideogamesByGenre(e.target.value))
+    dispatch(filterItemsByGenre(e.target.value))
   } 
 
   const limpiar = (e) => {
     e.preventDefault();
-    dispatch(getVideogames());
+    dispatch(getItems());
     dispatch(clearHome());
   }
 return (
   <div id="home">
     <div id="orden">
       <Paginado
-        videogamesPerPage={videogamesPerPage}
-        videogames={videogames.length}
+        itemsPerPage={itemsPerPage}
+        items={items.length}
         paginado={paginado}
       />
       <button id='limpiar' onClick={(e) => limpiar(e)}>Limpiar</button>
@@ -96,12 +96,12 @@ return (
         </select>
       </label>
     </div>
-    <div id='videogamecard'>
+    <div id='itemcard'>
     {loading ? <img id="load" src={load} alt="Loading..."/> : 
-      currentVideogames && typeof currentVideogames === 'string' ? 
-      noHayJuegos() : currentVideogames.map(m => {
+      currentItems && typeof currentItems === 'string' ? 
+      noHayJuegos() : currentItems.map(m => {
         return (          
-        <VideogameCard 
+        <ItemCard 
           key={m.id}
           id={m.id}
           name={m.name}

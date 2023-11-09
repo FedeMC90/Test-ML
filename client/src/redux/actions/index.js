@@ -1,53 +1,51 @@
 import axios from 'axios';
-// const URL_BACK = 'http://localhost:3001';
-const URL_BACK = 'https://lojueguito-api.onrender.com';
+const URL_BACK = 'http://localhost:3001';
 
-export const GET_VIDEOGAMES = 'GET_VIDEOGAMES';
-export const GET_VIDEOGAMES_BY_NAME = 'GET_VIDEOGAMES_BY_NAME';
-export const GET_VIDEOGAME_DETAIL = 'GET_VIDEOGAME_DETAIL';
-export const CREATE_VIDEOGAME = 'CREATE_VIDEOGAME';
+export const GET_ITEMS = 'GET_ITEMS';
+export const GET_ITEMS_BY_NAME = 'GET_ITEMS_BY_NAME';
+export const GET_ITEM_DETAIL = 'GET_ITEM_DETAIL';
 export const GET_GENRES = 'GET_GENRES';
 export const GET_PLATFORMS = 'GET_PLATFORMS';
-export const CLEAR_VIDEOGAME_DETAIL = 'CLEAR_VIDEOGAME_DETAIL';
+export const CLEAR_ITEM_DETAIL = 'CLEAR_ITEM_DETAIL';
 export const CLEAR_HOME = 'CLEAR_HOME';
-export const FILTER_VIDEOGAMES_BY_ORIGIN = 'FILTER_VIDEOGAMES_BY_ORIGIN';
-export const FILTER_VIDEOGAMES_BY_GENRE = 'FILTER_VIDEOGAMES_BY_GENRE';
+export const FILTER_ITEMS_BY_ORIGIN = 'FILTER_ITEMS_BY_ORIGIN';
+export const FILTER_ITEMS_BY_GENRE = 'FILTER_ITEMS_BY_GENRE';
 export const ORDER = 'ORDER';
 export const LOADING = 'LOADING';
 
-export const getVideogames = () => {
+export const getItems = () => {
   return async function (dispatch) {
     dispatch(loading());
-    let json = await axios.get(`${URL_BACK}/videogames`);
-    return dispatch({ type: GET_VIDEOGAMES, payload: json.data })
+    let json = await axios.get(`${URL_BACK}/items`);
+    return dispatch({ type: GET_ITEMS, payload: json.data })
   }
 };
 
-export const getVideogamesByName = (name) => {
+export const getItemsByName = (name) => {
   return async function (dispatch) {
     dispatch(loading());
     try {
-      let json = await axios.get(`${URL_BACK}/videogames?name=${name}`);
-      return dispatch({ type: GET_VIDEOGAMES_BY_NAME, payload: json.data })  
+      let json = await axios.get(`${URL_BACK}/items?name=${name}`);
+      return dispatch({ type: GET_ITEMS_BY_NAME, payload: json.data })  
     } catch (error) {
       return new Error('No se encontró ningún juego con ese nombre.')
     }
   }
 };
 
-export const getVideogameDetail = (id) => {
+export const getItemDetail = (id) => {
    return async function (dispatch) {
-     await fetch(`${URL_BACK}/videogame/${id}`)
+     await fetch(`${URL_BACK}/item/${id}`)
       .then((response) => response.json())
       .then((json) => {
-          dispatch({ type: GET_VIDEOGAME_DETAIL, payload: json });
+          dispatch({ type: GET_ITEM_DETAIL, payload: json });
       });
   };
 };
 
-export function clearVideogameDetail() {
+export function clearItemDetail() {
   return {
-    type: CLEAR_VIDEOGAME_DETAIL,
+    type: CLEAR_ITEM_DETAIL,
   };
 }
 
@@ -56,14 +54,6 @@ export function clearHome() {
     type: CLEAR_HOME,
   };
 }
-
-export const createVideogame = (data) => {
-  return async function (dispatch) {
-    let json = await axios.post(`${URL_BACK}/videogames`, data);
-    return json;
-  }
-};
-
 export const getGenres = () => {
   return function (dispatch) {
     fetch(`${URL_BACK}/genres`)
@@ -84,16 +74,16 @@ export const getPlatforms = () => {
   };
 };
 
-export const filterVideogamesByOrigin = (payload) => {
+export const filterItemsByOrigin = (payload) => {
   return {
-    type: FILTER_VIDEOGAMES_BY_ORIGIN,
+    type: FILTER_ITEMS_BY_ORIGIN,
     payload
   }
 };
 
-export const filterVideogamesByGenre = (payload) => {
+export const filterItemsByGenre = (payload) => {
   return {
-    type: FILTER_VIDEOGAMES_BY_GENRE,
+    type: FILTER_ITEMS_BY_GENRE,
     payload
   }
 };

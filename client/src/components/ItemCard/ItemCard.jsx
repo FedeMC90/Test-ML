@@ -1,10 +1,10 @@
-import "./VideogameCard.css";
+import "./ItemCard.css";
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-function VideogameCard(props) {
+function ItemCard(props) {
   return (
-    <Link to={`/videogame/${props.id}`} style = {{textDecoration: 'none'}}>
+    <Link to={`/Item/${props.id}`} style = {{textDecoration: 'none'}}>
       <div id="card">
         <h3>{props.name}</h3>
         <img src={props.background_image} width='400' height='250' alt={props.background_name}/>
@@ -16,4 +16,4 @@ function VideogameCard(props) {
   )
 }
 
-export default VideogameCard
+export default ItemCard

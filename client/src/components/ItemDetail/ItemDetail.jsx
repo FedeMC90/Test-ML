@@ -1,17 +1,17 @@
 import React from "react";
-import {getVideogameDetail, clearVideogameDetail} from '../../redux/actions';
+import {getItemDetail, clearItemDetail} from '../../redux/actions';
 import { useDispatch, useSelector } from "react-redux";
 import {useParams} from 'react-router-dom'
-import './VideogameDetail.css';
+import './ItemDetail.css';
 
-const VideogameDetail = () => {
+const ItemDetail = () => {
   let params = useParams()
   let dispatch = useDispatch();
-  let detail = useSelector(state => state.videogameDetail)
+  let detail = useSelector(state => state.ItemDetail)
 
   React.useEffect(() => {
-    dispatch(getVideogameDetail(params.id))
-    dispatch(clearVideogameDetail())
+    dispatch(getItemDetail(params.id))
+    dispatch(clearItemDetail())
     
   }, [])
 
@@ -37,4 +37,4 @@ const VideogameDetail = () => {
 };
 
 
-export default VideogameDetail;
+export default ItemDetail;
