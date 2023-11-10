@@ -5,7 +5,6 @@ import './NavBar.css'
 function NavBar({onSearch}) {
   return (
     <div id='navbar'>
-
       <SearchBar id='searchbar' onSearch={onSearch}/>
 
     </div>

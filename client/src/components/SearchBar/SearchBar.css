@@ -1,7 +1,6 @@
 #searchbar {
   display: flex;
   align-items: center;
-  /* background-color: red; */
   justify-content: center;
 }
 
@@ -10,28 +9,28 @@ form {
   margin-top: 0rem;
 }
 
-#input, #boton {
+#input, #searchButton {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  border: 1px solid aliceblue;
-  background-color: rgb(16, 19, 73);
-  color: aliceblue;
+  border: none;
+}
+
+#logoML {
   height: 2rem;
+  margin-right: 1rem;
+  padding-top: 2px;
 }
 
 #input {
-  width: 13rem;
+  width: 40rem;
   padding-left: 0.5rem;
+  height: 2rem;
 }
 
-#boton {
-  width: 6rem;
+#searchButton {
   cursor: pointer;
-  font-size: medium;
-  margin-left: -0.1rem;
-}
+  padding: 1px 6px;
+} 
 
-#boton:hover {
-  background-color: aliceblue;
-  color: rgb(16, 19, 73);
-  border: 1px solid rgb(16, 19, 73);
+#buttonImage {
+  height: 1.5rem;
 }
