@@ -1,11 +1,10 @@
 #home {
   background-color: rgb(224, 224, 224);
-}
-
-#itemcard {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
 }
 
 #load {
@@ -14,3 +13,4 @@
   margin-left: auto;
   margin-right: auto;
 }
+

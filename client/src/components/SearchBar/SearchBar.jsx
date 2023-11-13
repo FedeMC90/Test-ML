@@ -2,13 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { getItemsByName, clearHome } from '../../redux/actions';
+import { getItemsByName } from '../../redux/actions';
 import './SearchBar.css';
-import { Link } from 'react-router-dom';
 
 export default function SearchBar({onSearch}) {
   const [name, setName] = useState('');
-  const items = useSelector((state) => state.items)
+  // const items = useSelector((state) => state.items)
   const history = useHistory();
 
   function handleInputChange (e) {
@@ -20,7 +19,6 @@ export default function SearchBar({onSearch}) {
   return <div id='searchbar'> 
     <form onSubmit={(e) => {  //en react por default se devuelve falso, por lo tanto hay que evitar eso con el metodo 
       e.preventDefault();     //preventDefault
-      // dispatch(clearHome());
       dispatch(getItemsByName(name));         //manda a buscar el juego ingresado por el usuario
       history.push(`/items?search=${name}`)
       setName('');            //blanquea el input

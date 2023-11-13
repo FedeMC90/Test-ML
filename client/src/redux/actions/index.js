@@ -26,20 +26,22 @@ export const getItemsByName = (name) => {
     dispatch(loading());
     try {
       let json = await axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${name}`);
-      return dispatch({ type: GET_ITEMS_BY_NAME, payload: json.data.results })  
+      return dispatch({ type: GET_ITEMS_BY_NAME, payload: json.data.results });
     } catch (error) {
-      return new Error('No se encontró ningún item con ese nombre.')
+      return new Error('No se encontró ningún item con ese nombre.');
     }
   }
 };
 
 export const getItemDetail = (id) => {
    return async function (dispatch) {
-     await fetch(`https://api.mercadolibre.com/items/${id}`)
-      .then((response) => response.json())
-      .then((json) => {
-          dispatch({ type: GET_ITEM_DETAIL, payload: json });
-      });
+    dispatch(loading());
+    try {
+      let json = await axios.get(`https://api.mercadolibre.com/items/${id}`);
+      return dispatch({ type: GET_ITEM_DETAIL, payload: json.data });
+    } catch (error) {
+      return new Error('No se encontró el detalle del item');
+    }
   };
 };
 

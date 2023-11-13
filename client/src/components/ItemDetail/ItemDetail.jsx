@@ -1,40 +1,31 @@
-import React from "react";
 import {getItemDetail, clearItemDetail} from '../../redux/actions';
 import { useDispatch, useSelector } from "react-redux";
-import {useParams} from 'react-router-dom'
+import { useEffect } from "react";
+import {useParams} from 'react-router-dom';
+import load from '../../Media/Loading.gif'; 
 import './ItemDetail.css';
 
 const ItemDetail = () => {
-  let params = useParams()
+  let params = useParams();
   let dispatch = useDispatch();
-  let detail = useSelector(state => state.ItemDetail)
-
-  React.useEffect(() => {
-    dispatch(getItemDetail(params.id))
-    dispatch(clearItemDetail())
-    
-  }, [])
+  let detail = useSelector(state => state.itemDetail);
+  let loading = useSelector (state => state.loading);
 
   return (
+    loading ? <img id="load" src={load} alt="Loading..."/> : 
     <div id="detail">
       <div id='col1'>
-        <h2>{detail.name}</h2>
-        <img id='imgdetail' src={detail.background_image} width='400' height='250' alt={detail.name}/>
+        <img id='imgdetail' src={detail.thumbnail} alt='image'/>
+        <p id="description">{detail.description}</p>
       </div>
       <div id='col2'>
-        <h5>Rating: {detail.rating}</h5>
-        <h5>Released: {detail.released}</h5>
-        <p id="description">{detail.description}</p>
-        <ul>
-          {detail.genres && detail.genres.map(e => <li>{e.name}</li>)}
-        </ul>
-        <ul>
-          {detail.platforms && detail.platforms.map(e => <li>{e.name}</li>)}
-        </ul>
+        <p>{detail.condition === 'new' ? 'Nuevo' : 'Usado'}</p>
+        {/* <p>{sold_quantity}</p> */}
+        <h2>{detail.title}</h2>
+        <button>Comprar</button>
       </div>
     </div>
   );
 };
-
 
 export default ItemDetail;
