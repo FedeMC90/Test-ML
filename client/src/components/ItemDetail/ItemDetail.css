@@ -11,12 +11,13 @@
   background-color: rgb(255, 255, 255);
   color: black;
   padding: 5pt;
+  padding-bottom: 10pt;
   width: 60rem;
   margin-bottom: 2px;
 }
 
 #col1 {
-  width: 50rem;
+  width: 70rem;
 }
 
 #col2 {
@@ -28,14 +29,22 @@
   font-size: 0.8rem;
 }
 
-#descrTitle {
-  font-weight: 450;
+#price {
+  font-size: 2rem;
+}
+
+#imgDetail {
+  margin-bottom: 3rem;
+  object-fit: contain;
+}
+
+#descrTitle, #description {
   text-align: start;
   margin-left: 2rem;
 }
 
-#price {
-  font-size: 2rem;
+#descrTitle {
+  font-weight: 450;
 }
 
 #buyButton {

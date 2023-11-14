@@ -17,7 +17,7 @@ console.log('detail: ', detail)
     <div id="background">
       <div id='detail'>
         <div id='col1'>
-          <img id='imgdetail' src={detail.pictures[0].url} alt='image'/>
+          <img id='imgDetail' src={detail.pictures[0].url} alt='image'/>
           <h2 id='descrTitle'>Descripción del producto</h2>
           <p id="description">{detail.description}</p>
         </div>
