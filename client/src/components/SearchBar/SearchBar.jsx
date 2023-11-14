@@ -1,13 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getItemsByName } from '../../redux/actions';
 import './SearchBar.css';
 
 export default function SearchBar({onSearch}) {
   const [name, setName] = useState('');
-  // const items = useSelector((state) => state.items)
   const history = useHistory();
 
   function handleInputChange (e) {

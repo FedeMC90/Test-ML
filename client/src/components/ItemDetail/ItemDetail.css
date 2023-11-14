@@ -12,12 +12,8 @@
   color: black;
   padding: 5pt;
   padding-bottom: 10pt;
-  width: 60rem;
   margin-bottom: 2px;
-}
-
-#col1 {
-  width: 70rem;
+  width: 60rem;
 }
 
 #col2 {
@@ -34,7 +30,8 @@
 }
 
 #imgDetail {
-  margin-bottom: 3rem;
+  width: 30rem;
+  height: 30rem;
   object-fit: contain;
 }
 
@@ -47,6 +44,10 @@
   font-weight: 450;
 }
 
+#description {
+  width: 40rem;
+}
+
 #buyButton {
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -54,7 +55,7 @@
   transition-duration: 0.3s;
   -webkit-transition-property: color, background-color;
   transition-property: color, background-color;
-  width: 100%;
+  width: 16rem;
   font-size: 1rem;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;  

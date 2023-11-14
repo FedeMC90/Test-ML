@@ -1,10 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import ItemCard from "../ItemCard/ItemCard";
 import './Home.css';
 import load from '../../Media/Loading.gif';
-import { clearHome } from "../../redux/actions";
 
 const Home = () => {
   // Hooks: Con el useSelector me traigo lo que hay en el estado de items
@@ -16,22 +15,14 @@ const Home = () => {
   const indexOfLastItem = currentPage * itemsPerPage; 
   const indexOfFirstItem = indexOfLastItem - itemsPerPage; 
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
-  const dispatch = useDispatch();
   
-  // useEffect (() => {
-    
-  // }, []);
-  // const noHayItems = () => {
-  //   alert('No se encontraron items con ese nombre.')
-  // }
-
   let loading = useSelector (state => state.loading);
   
   return (
+    loading ? <img id="load" src={load} alt="Loading..."/> :
     <div id="home">
       <div id='itemcard'>
-      {loading ? <img id="load" src={load} alt="Loading..."/> : 
-        currentItems.map(m => {
+      {currentItems.map(m => {
           return (          
           <ItemCard 
             key={m.id}

@@ -1,6 +1,4 @@
-import {getItemDetail, clearItemDetail} from '../../redux/actions';
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import {useParams} from 'react-router-dom';
 import load from '../../Media/Loading.gif'; 
 import './ItemDetail.css';
@@ -8,10 +6,9 @@ import './ItemDetail.css';
 const ItemDetail = () => {
   const items = useSelector ((state) => state.items);
   let params = useParams();
-  let dispatch = useDispatch();
   let detail = useSelector(state => state.itemDetail);
   let loading = useSelector (state => state.loading);
-console.log('detail: ', detail)  
+  
   return (
     loading ? <img id="load" src={load} alt="Loading..."/> : 
     <div id="background">
