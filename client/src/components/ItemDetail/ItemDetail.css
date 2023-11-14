@@ -1,3 +1,65 @@
+#background {
+  background-color: rgb(224, 224, 224);
+  display: flex;
+  justify-content: center;
+  padding-top: 2.5rem;
+  padding-bottom: 5rem;
+}
+
 #detail {
   display: flex;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  padding: 5pt;
+  width: 60rem;
+  margin-bottom: 2px;
+}
+
+#col1 {
+  width: 50rem;
+}
+
+#col2 {
+  text-align: start;
+  padding-right: 2rem;
+}
+
+#conditionAndSold {
+  font-size: 0.8rem;
+}
+
+#descrTitle {
+  font-weight: 450;
+  text-align: start;
+  margin-left: 2rem;
+}
+
+#price {
+  font-size: 2rem;
+}
+
+#buyButton {
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+  width: 100%;
+  font-size: 1rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;  
+  background-color: #3483fa;
+  color: #fff;
+  border-color: transparent;
+  border-radius: 6px;
+  box-shadow: 0 0 0 0 #fff;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: Proxima Nova,-apple-system,Roboto,Arial,sans-serif;
+  font-size: 16px;
+}
+
+#buyButton:hover, .buyButton:focus, .buyButton:active {
+  background-color: #3483fabe;
 }

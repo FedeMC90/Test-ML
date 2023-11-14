@@ -19,14 +19,14 @@ const Home = () => {
   const dispatch = useDispatch();
   
   // useEffect (() => {
-
+    
   // }, []);
-  
   // const noHayItems = () => {
   //   alert('No se encontraron items con ese nombre.')
   // }
 
   let loading = useSelector (state => state.loading);
+  
   return (
     <div id="home">
       <div id='itemcard'>

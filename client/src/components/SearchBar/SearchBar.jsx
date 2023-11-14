@@ -19,7 +19,7 @@ export default function SearchBar({onSearch}) {
   return <div id='searchbar'> 
     <form onSubmit={(e) => {  //en react por default se devuelve falso, por lo tanto hay que evitar eso con el metodo 
       e.preventDefault();     //preventDefault
-      dispatch(getItemsByName(name));         //manda a buscar el juego ingresado por el usuario
+      dispatch(getItemsByName(name));         //manda a buscar el item ingresado por el usuario
       history.push(`/items?search=${name}`)
       setName('');            //blanquea el input
       }}>
