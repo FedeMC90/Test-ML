@@ -34,7 +34,7 @@ const ItemDetail = () => {
 					<img
 						id='imgDetail'
 						src={detail.pictures[0].url}
-						alt='image'
+						alt='detail'
 					/>
 					<h2 id='descrTitle'>Descripción del producto</h2>
 					<p id='description'>{detail.description}</p>

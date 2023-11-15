@@ -1,5 +1,3 @@
-import { useDispatch } from 'react-redux';
-import { getCategoryPath } from '../actions';
 import { GET_ITEMS_BY_NAME, GET_ITEM_DETAIL, CLEAR_ITEM_DETAIL, LOADING, CLEAR_HOME, GET_CATEGORY_PATH } from '../actions';
 
 const initialState = {
