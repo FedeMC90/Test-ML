@@ -7,7 +7,6 @@ import { Switch } from 'react-router-dom/cjs/react-router-dom.min';
 
 function App() {
 	return (
-		
     <div className='App'>
       <Route path='/' component={NavBar}/>
       <Switch>
@@ -15,7 +14,6 @@ function App() {
         <Route path='/items' component={Home}/>
       </Switch>
 		</div>
-    
 	)
 }
 

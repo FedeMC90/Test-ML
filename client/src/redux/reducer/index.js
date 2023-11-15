@@ -61,6 +61,7 @@ export default function reducer(state = initialState, action) {
 		case LOADING:
 			return {
 				...state,
+				categoryPath: [],
 				loading: true,
 			};
 		default:
