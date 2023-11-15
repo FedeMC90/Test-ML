@@ -9,7 +9,7 @@ function ItemCard(props) {
   const handleOnClick = () => {
     dispatch(getItemDetail(props.id));
   };
-  
+
   return (
     <Link to={`/items/${props.id}`} style = {{textDecoration: 'none'}} >
       <div id="card" onClick={() => handleOnClick()}>
@@ -19,8 +19,8 @@ function ItemCard(props) {
           <p id='title'>{props.title}</p>
         </div>
         <p id='location'>{props.location}</p>
-      </div>  
-    </Link>    
+      </div>
+    </Link>
   )
 }
 

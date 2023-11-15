@@ -1,16 +1,22 @@
 #home {
-  background-color: rgb(224, 224, 224);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 2.5rem;
-  padding-bottom: 5rem;
+	background-color: rgb(236, 236, 236);
+	padding-bottom: 5rem;
+}
+
+#breadcrumb {
+	display: flex;
+	margin-left: 12rem;
+	color: rgb(145, 145, 145);
+	font-size: 14px;
+}
+
+#category {
+	margin-right: 4px;
 }
 
 #load {
-  border-radius: 1rem;
-  margin-top: 10rem;
-  margin-left: auto;
-  margin-right: auto;
+	border-radius: 1rem;
+	margin-top: 10rem;
+	margin-left: auto;
+	margin-right: auto;
 }
-
